@@ -85,22 +85,6 @@ client.connect((err) => {
         res.send(result.modifiedCount > 0);
       });
   });
-  ////delete order
-  // app.delete("/deleteOrder/:id", (req, res) => {
-  //   const id = ObjectId(req.params.id);
-  //   orderCollection.findOneAndDelete({ _id: id }).then((err, documents) => {
-  //     res.send(documents);
-  //   });
-  // });
-
-  ///
-  ///
-
-  // app.get("/ownOrder", (req, res) => {
-  //   orderCollection.find({ email: req.params.email }).toArray((err, items) => {
-  //     res.send(items);
-  //   });
-  // });
 
   app.get("/ownOrder", (req, res) => {
     orderCollection.find({ email: req.query.email }).toArray((err, items) => {
@@ -114,41 +98,7 @@ client.connect((err) => {
     });
   });
 
-  // ///admin-section
-  // app.post("/isAdmin", (req, res) => {
-  //   const email = req.body.email;
-  //   adminCollection
-  //     .find({ email: email })
-  //     //
-  //     .toArray((err, admins) => {
-  //       res.send(admins.length > 0);
-  //     });
-  // });
 
-  // app.post("/addAdmin", (req, res) => {
-  //   const admin = req.body;
-  //   adminCollection.insertOne(admin).then((result) => {
-  //     res.send(result.insertedCount > 0);
-  //   });
-  // });
-
-  // ///admin-list
-  // app.get("/admin", (req, res) => {
-  //   adminCollection.find().toArray((err, documents) => {
-  //     res.send(documents);
-  //   });
-  // });
-
-  // //admin-dashboard-activity
-
-  // ///admin delete
-  // app.delete("/removeAdmin/:id", (req, res) => {
-  //   const id = ObjectId(req.params.id);
-  //   adminCollection.findOneAndDelete({ _id: id }).then(err, (documents) => {
-  //     res.send(documents);
-  //   });
-  // });
-  //////////
   app.post("/addAdmin", (req, res) => {
     const admin = req.body;
 
